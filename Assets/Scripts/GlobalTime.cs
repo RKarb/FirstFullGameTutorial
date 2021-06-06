@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GlobalTime : MonoBehaviour
 {
@@ -12,10 +13,18 @@ public class GlobalTime : MonoBehaviour
 
     void Update()
     {
-        if (deductingTime == false)
+        if (seconds == 0)
         {
-            deductingTime = true;
-            StartCoroutine(DeductSecond());
+            seconds = 0;
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            if (deductingTime == false)
+            {
+                deductingTime = true;
+                StartCoroutine(DeductSecond());
+            }
         }
     }
 
