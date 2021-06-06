@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -29,4 +30,20 @@ public class PauseGame : MonoBehaviour
             }
         }
     }
+
+    public void UnpauseGame()
+    {
+        pauseMenu.SetActive(false);
+        this.GetComponent<AudioSource>().UnPause();
+        Cursor.visible = false;
+        gamePaused = false;
+        Time.timeScale = 1;
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+
 }
