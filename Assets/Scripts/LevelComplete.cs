@@ -27,6 +27,7 @@ public class LevelComplete : MonoBehaviour
         player.GetComponent<PlayerControls>().enabled = false;
         yield return new WaitForSeconds(3);
         GlobalLevel.levelNumber += 1;
+        PlayerPrefs.SetInt("LevelLoadNum", GlobalLevel.levelNumber);
         SceneManager.LoadScene(2);
     }
 }
