@@ -49,6 +49,7 @@ public class PauseGame : MonoBehaviour
     public void QuitLevel()
     {
         Time.timeScale = 1;
+        GlobalLevel.levelNumber = 3;
         SceneManager.LoadScene(1);
     }
 }
